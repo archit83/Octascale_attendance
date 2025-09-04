@@ -1,0 +1,389 @@
+/* ---------------------------------- */
+/* Base Layout and Reset              */
+/* ---------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+  background-color: #000000;
+  color: #39ff14; /* Neon green text */
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: 'CourierNew', Courier, monospace,;
+}
+
+/* ---------------------------------- */
+/* Containers                         */
+/* ---------------------------------- */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 16px;
+
+  background: linear-gradient(135deg, #0a0a0a, #1a001a, #220022, #0d0d0d);
+  background-size: 400% 400%;
+  animation: pulseGradient 12s ease infinite;
+
+  box-shadow:
+    0 0 20px rgba(255, 0, 0, 0.4),
+    0 0 30px rgba(255, 20, 147, 0.3),
+    0 0 50px rgba(255, 0, 0, 0.2),
+    0 0 80px rgba(255, 0, 0, 0.1);
+
+  color: #f8f8f8;
+  font-family: 'Cinzel Decorative', 'Creepster', serif;
+  text-shadow:
+    0 0 1px #ff1a1a,
+    0 0 1px #ff1a1a,
+    0 0 1px #ff0033;
+}
+
+
+.welcome-container {
+  text-align: center;
+  background-color: #000;
+  color: #39ff14;
+  margin: 0 auto;
+
+  padding: 40px 20px;
+  background: linear-gradient(to right, hsla(207, 31%, 22%, 0.498), hwb(0 9% 76%));
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.welcome-container p {
+  font-size: 1.5rem; /* You can increase this value if you want it even larger */
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+
+/* ---------------------------------- */
+/* Headings & Text                    */
+/* ---------------------------------- */
+h1 {
+  font-family: "Creepster", "Cinzel Decorative", "Papyrus", "Garamond", serif;
+  font-size: 5rem; /* You can go bigger if needed */
+  color: #ff1a1a;
+  text-shadow:
+    0 0 5px rgba(255, 0, 0, 0.6),
+    0 0 10px rgba(255, 0, 0, 0.7),
+    0 0 20px rgba(255, 0, 0, 0.8),
+    0 0 40px rgba(255, 0, 0, 0.6),
+    0 0 80px rgba(255, 0, 0, 0.4);
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+h2, h3, h4 {
+  font-family: 'Cinzel Decorative', 'Creepster', 'Garamond', serif;
+  color: #ff1a1a; /* Neon red */
+  text-shadow:
+    0 0 6px #ff1a1a6b,
+    0 0 6px #ff333376,
+    0 0 6px #ff4d4d88,
+    0 0 6px #ff666670;
+
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 3.5rem;
+}
+
+h3 {
+  font-size: 2.8rem;
+}
+
+h4 {
+  font-size: 2.3rem;
+}
+
+
+
+h2::before {
+  content: "📋 ";
+}
+
+h3::before {
+  content: "📅 ";
+}
+
+footer, small {
+  font-size: 13px;
+  color: #777;
+  text-align: center;
+  margin-top: 40px;
+}
+
+
+.lead-text {
+  font-size: 120px; /* Larger text */
+  font-weight: 800;
+  line-height: 120px;
+  color: #3cb371; /* Medium green, not neon */
+  text-shadow: 0 0 3px #2e8b57;
+  font-family: 'Cinzel Decorative', 'Georgia', serif;
+  text-align: center;
+  letter-spacing: 1.5px;
+  margin-top: 30px;
+}
+
+
+
+
+/* ---------------------------------- */
+/* Links                              */
+/* ---------------------------------- */
+a {
+  text-decoration: none;
+  color: #0077cc;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #005fa3;
+}
+
+/* ---------------------------------- */
+/* Forms & Inputs                     */
+/* ---------------------------------- */
+form {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+input[type="submit"],
+button {
+  background-color: #1a1a1a; /* dark base */
+  color: #ff003c; /* neon red/pink */
+  font-family: 'Cinzel Decorative', 'Creepster', 'Garamond', serif;
+  padding: 12px 22px;
+  border: 2px solid #ff003c;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 4px #ff003c;
+  box-shadow: 0 0 8px rgba(255, 0, 60, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover,
+button:hover {
+  background-color: #ff003c;
+  color: #000;
+  text-shadow: 0 0 6px #ffffff, 0 0 12px #ff003c;
+  box-shadow:
+    0 0 10px #ff003c,
+    0 0 20px #ff003c,
+    0 0 30px #ff003c;
+}
+
+
+/* Alerts */
+.alert {
+  background-color: #ffdddd;
+  color: #b30000;
+  border: 1px solid #ffaaaa;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+/* ---------------------------------- */
+/* Buttons                            */
+/* ---------------------------------- */
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  margin: 12px 6px 0 0;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'Cinzel Decorative', serif; /* Gothic + Formal touch */
+  letter-spacing: 1px;
+  transition: all 0.3s ease-in-out;
+  background-color: #111; /* Dark background */
+  color: #ff1a1a; /* Neon red */
+  box-shadow:
+    0 0 5px #ff1a1a88,
+    0 0 10px #ff1a1a55,
+    0 0 20px #ff1a1a33;
+}
+
+.btn:hover {
+  transform: scale(1.08);
+  background-color: #000; /* Even darker on hover */
+  box-shadow:
+    0 0 10px #ff1a1a,
+    0 0 20px #ff1a1a,
+    0 0 30px #ff1a1a;
+}
+
+.btn-primary {
+  background-color: #0077cc;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #005fa3;
+  color: rgb(136, 249, 249);
+  transform: scale(1.05);
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #1e7e34;
+  color: rgb(112, 233, 249);
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  background-color: #ccc;
+  color: rgb(112, 233, 249);
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background-color: #bbb;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+}
+
+/* Button Groups */
+.button-group {
+  margin-top: 30px;
+}
+
+/* ---------------------------------- */
+/* Attendance Summary                 */
+/* ---------------------------------- */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 8px 0;
+  padding: 10px 14px;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+}
+
+span.present {
+  color: green;
+  font-weight: bold;
+}
+
+span.absent {
+  color: red;
+  font-weight: bold;
+}
+
+/* ---------------------------------- */
+/* Animations                         */
+/* ---------------------------------- */
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideFadeIn 0.8s ease-out forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* ---------------------------------- */
+/* Responsive Layout                  */
+/* ---------------------------------- */
+@media (max-width: 600px) {
+  .btn,
+  .btn-primary,
+  .btn-success {
+    display: block;
+    width: 100%;
+    margin: 12px 0;
+  }
+
+  .container {
+    margin: 20px 10px;
+    padding: 20px;
+  }
+
+  h1, h2 {
+    font-size: 1.6em;
+  }
+}
+
+
+
+.oct-image {
+
+  display: block;
+  margin: 0 auto 20px auto;
+  width: auto;
+  filter: brightness(1.5);
+  width: auto;
+  height: 100px;
+  margin-bottom: 20px;
+  animation: popIn 1s ease-out forwards;
+  opacity: 0;
+}
+
+/* Pop-in Logo Animation */
+@keyframes popIn {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

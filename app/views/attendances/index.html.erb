@@ -1,0 +1,84 @@
+<div class="container" style="max-width: 700px; margin: 20px auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-family: 'Segoe UI', sans-serif;">
+  <h2 style="text-align:center; margin-bottom: 25px;">📅 Mark Attendance for <%= @date.strftime("%d-%m-%Y") %></h2>
+
+  <% if @existing_attendance.empty? %>
+    <%= form_with url: attendances_path, method: :post, local: true do %>
+      <%= hidden_field_tag :attendance_date, @date %>
+
+      <% @employees.each do |employee| %>
+        <div style="margin-bottom: 15px;">
+          <strong><%= employee.name %> - <%= employee.designation %>:</strong>
+          <label style="margin-left: 15px;">
+            ✅ Present
+            <%= radio_button_tag "attendance[#{employee.id}]", "present", true %>
+          </label>
+          <label style="margin-left: 20px;">
+            ❌ Absent
+            <%= radio_button_tag "attendance[#{employee.id}]", "absent" %>
+          </label>
+        </div>
+      <% end %>
+
+      <div style="text-align: center; margin-top: 20px;">
+        <%= submit_tag "📝 Submit Attendance", style: "background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer;" %>
+      </div>
+    <% end %>
+  <% else %>
+    <ul style="list-style: none; padding: 0;">
+      <% @employees.each do |employee| %>
+        <% if @existing_attendance[employee.id] %>
+          <li style="margin-bottom: 10px;">
+            <strong><%= employee.name %>:</strong>
+            <span style="color:<%= @existing_attendance[employee.id] == 'present' ? 'green' : 'red' %>; font-weight: bold;">
+              <%= @existing_attendance[employee.id].capitalize %>
+            </span>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <hr style="margin: 40px 0;">
+
+  <h3 style="text-align:center;">📆 Check Attendance for Previous Date</h3>
+  <div style="text-align:center; margin-top: 10px;">
+    <%= form_with url: attendances_path, method: :get, local: true do %>
+      <%= date_field_tag :date, @date, id: "date_picker", style: "padding: 8px; border-radius: 6px; border: 1px solid #ccc;" %>
+      <%= submit_tag "Check", style: "margin-left: 10px; padding: 8px 14px; background-color: #007bff; color: white; border: none; border-radius: 6px; cursor: pointer;" %>
+    <% end %>
+  </div>
+
+  <div style="text-align:center; margin-top: 30px;">
+    <%= form_with url: edit_existing_attendances_path, method: :get, local: true do %>
+      <%= date_field_tag :date, Date.today, id: "edit_date_picker", style: "padding: 8px; border-radius: 6px;" %>
+      <%= submit_tag "✏️ Edit Attendance", class: "btn btn-primary", style: "margin-left: 10px;" %>
+    <% end %>
+  </div>
+
+  <hr style="margin: 40px 0;">
+
+  <h3 style="text-align:center;">➕ Add New Employee</h3>
+  <%= form_with url: add_employee_attendances_path, local: true do |form| %>
+    <div style="margin-bottom: 12px;">
+      <%= form.label :name %>
+      <%= form.text_field :name, placeholder: "Enter name", style: "width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc;" %>
+    </div>
+
+    <div style="margin-bottom: 12px;">
+      <%= form.label :designation %>
+      <%= form.text_field :designation, placeholder: "Enter designation", style: "width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc;" %>
+    </div>
+
+    <div style="text-align: center;">
+      <%= form.submit "Add Employee", class: "btn btn-primary", style: "background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 6px;" %>
+    </div>
+  <% end %>
+</div>
+
+<%= javascript_include_tag "https://cdn.jsdelivr.net/npm/flatpickr" %>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    flatpickr("#date_picker", { dateFormat: "Y-m-d" });
+    flatpickr("#edit_date_picker", { dateFormat: "Y-m-d" });
+  });
+</script>

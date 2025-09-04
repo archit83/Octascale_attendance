@@ -1,0 +1,39 @@
+<div class="welcome-container slide-in">
+  <!-- Octopus Logo -->
+  <img src="<%= asset_path('oct.png') %>" alt="Octascale Logo" class="oct-image">
+
+  <!-- Main Heading -->
+  <h1>🐙 Welcome to Octascale Attendance App</h1>
+  <br>
+  <br>
+  
+  <!-- Lead Paragraph -->
+  <p class="lead-text">
+    🎯 Your ultimate solution to <strong>track employee attendance</strong> with ease, speed, and style!
+  </p>
+  <br>
+  <br>
+  <br>
+
+  <!-- Features Section -->
+  <div class="features">
+    <p>✨ <strong>Simple Dashboard:</strong> Clean UI for effortless navigation.</p>
+    <p>📆 <strong>One-Click Attendance:</strong> Mark everyone's status in seconds.</p>
+    <p>📊 <strong>Smart Insights:</strong> Check past records by date.</p>
+    <p>🔒 <strong>Secure & Fast:</strong> Built with Rails – your data stays safe.</p>
+  </div>
+  <br>
+
+  <!-- CTA Buttons -->
+  <div class="button-group" style="margin-top: 20px;">
+    <%= link_to "➕ Add New Employee", new_employee_path, class: "btn btn-primary", style: "margin-right: 10px;" %>
+    <%= link_to "👥 Manage Employees", employees_path, class: "btn btn-secondary", style: "margin-right: 10px;" %>
+    <%= link_to "📝 Mark Attendance", attendances_path, class: "btn btn-success" %>
+  </div>
+  <br>
+  <br>
+  <br>
+
+  <!-- Motivational Footer -->
+  <p class="footer-quote" style="margin-top: 30px;">🚀 Let's build a better workspace – one day at a time!</p>
+</div>

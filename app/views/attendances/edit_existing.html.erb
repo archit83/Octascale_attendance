@@ -1,0 +1,25 @@
+<div class="container slide-in">
+  <h2>✏️ Edit Attendance for <%= @date.strftime('%d-%m-%Y') %></h2>
+
+  <%= form_with url: attendances_path, method: :patch, local: true do %>
+    <input type="hidden" name="attendance_date" value="<%= @date %>">
+
+    <ul>
+      <% @employees.each do |employee| %>
+        <li>
+          <strong><%= employee.name %> - <%= employee.designation %></strong><br>
+          <label>
+            ✅ Present
+            <%= radio_button_tag "attendance[#{employee.id}]", "Present", @existing_attendance[employee.id] == "Present" %>
+          </label>
+          <label style="margin-left: 20px;">
+            ❌ Absent
+            <%= radio_button_tag "attendance[#{employee.id}]", "Absent", @existing_attendance[employee.id] == "Absent" %>
+          </label>
+        </li>
+      <% end %>
+    </ul>
+
+    <%= submit_tag "💾 Update Attendance", class: "btn btn-success" %>
+  <% end %>
+</div>

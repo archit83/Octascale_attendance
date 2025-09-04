@@ -1,0 +1,26 @@
+<%= form_with model: @employee, local: true do |form| %>
+  <% if @employee.errors.any? %>
+    <div style="background-color: #f8d7da; color: #721c24; padding: 10px 15px; border-radius: 6px; border: 1px solid #f5c6cb; margin-bottom: 20px;">
+      <ul style="margin: 0; padding-left: 20px;">
+        <% @employee.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="margin-bottom: 16px;">
+    <%= form.label :name, style: "display:block; font-weight:600; margin-bottom:6px;" %>
+    <%= form.text_field :name, style: "width:100%; padding:8px 12px; border:1px solid #ccc; border-radius:6px;" %>
+  </div>
+
+  <div style="margin-bottom: 16px;">
+    <%= form.label :designation, style: "display:block; font-weight:600; margin-bottom:6px;" %>
+    <%= form.text_field :designation, style: "width:100%; padding:8px 12px; border:1px solid #ccc; border-radius:6px;" %>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <%= form.submit "Save", style: "background-color:#007bff; color:white; padding:10px 20px; border:none; border-radius:6px; cursor:pointer;" %>
+    <%= link_to 'Cancel', employees_path, style: "margin-left:10px; padding:10px 20px; background-color:#6c757d; color:white; text-decoration:none; border-radius:6px;" %>
+  </div>
+<% end %>
